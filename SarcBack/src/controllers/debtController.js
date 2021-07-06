@@ -9,17 +9,21 @@ module.exports = {
     async createDbt(req, res) {
         const {user_id, cont_id} = req.params
         const {valor} = req.body
-       
+        const debtTotal = valor
+        console.log(debtTotal)
         try {
+
+            const createDebt = await Debt.create({user_id, cont_id, valor, debtTotal})
             const Total = await Debt.find()
-            return res.status(200).json({Total})
+            const debtos = Total.map(Total => Total.debtTotal)
+            console.log(debtos)
+            return res.status(200).json({message:"Debit registered", createDebt})
+
+
             
 
 
-
-
-            //const createDebt = await Debt.create({user_id, cont_id, valor})
-            //return res.status(200).json({message:"Debit registered", createDebt})
+            
                         
         } catch (error) {
             return res.status(400).json(error)
