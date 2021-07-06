@@ -16,7 +16,7 @@ const Schema = new mongoose.Schema({
     },
     debtTotal: {
         type: 'number', 
-        required: true,
+        required: false,
     },
     data:{
         type:'Date',
