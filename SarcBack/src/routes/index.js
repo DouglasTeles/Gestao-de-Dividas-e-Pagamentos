@@ -22,8 +22,9 @@ routes.delete('/sarc/cont/:cont_id', contController.deleteCont)//Deletar Conta e
 const debtController = require('../controllers/debtController')
 routes.post('/sarc/debt/:user_id/:cont_id', debtController.createDbt )//Cadastrar debt para um morador
 routes.get('/sarc/debts/:user_id', debtController.listDebtUser)//listar debts de um morador
-// routes.patch('/sarc/debt/:user_id/:conta_id', ContaController.atualizarContaMorador)//Atualizar debt de um morador
-// routes.delete('/sarc/debt/:user_id/:conta_id', ContaController.deletarContaMorador)//Deletar debt de um morador
+routes.delete('/sarc/debts/deleteall', debtController.deleteAllDebt)//Deletar todos os debitos
+routes.put('/sarc/debt/update/:debt_id', debtController.updateDebtUser)//Atualizar debt de um morador
+routes.delete('/sarc/debt/delete/:debt_id', debtController.deleteDebtUser)//Deletar debt de um morador
 
 
 
