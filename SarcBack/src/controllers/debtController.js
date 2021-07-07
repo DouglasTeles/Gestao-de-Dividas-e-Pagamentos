@@ -9,20 +9,24 @@ module.exports = {
 
     async createDbt(req, res) {
         const {user_id, cont_id} = req.params
-        const {valor} = req.body
-        const debtTotal = valor
+        const {valor, debtTotal} = req.body
         
         try {
+            //Adiciona valor a debtos
+            const createDebt = await Debt.create({user_id, cont_id, valor,debtTotal})
             
-            const createDebt = await Debt.create({user_id, cont_id, valor})
 
-            //cria um array debtos com os valores adicionados
+            //cria um array "debtos" com os valores adicionados
             const Total = await Debt.find()
             const debtos = Total.map(Total => Total.valor)
             
             //soma os debtos 
             totalDebts = debtos.reduce((va, debto) => va+debto)
-                                 
+
+            //salva a soma do total de debitos
+            createDebt.debtTotal.push(totalDebts)
+            await createDebt.save()                 
+           
             
             return res.status(200).json({message:"Debit registered", createDebt, totalDebts})
                    
@@ -38,11 +42,14 @@ module.exports = {
             const {user_id} = req.params
 
             const listDebt = await Debt.find({user_id})
-            const debtos = listDebt.map(listDebt => listDebt.valor)
+            
+            const Total = await Debt.find()
+            const debtos = Total.map(Total => Total.valor)
 
             totalDebts = debtos.reduce((va, debto) => va+debto)
-
             return res.status(200).json({listDebt, totalDebts})
+            
+           
         } catch (error) {
             return res.status(400).json(error)
         }
@@ -65,8 +72,8 @@ module.exports = {
         const {debt_id} = req.params
         
         try {
-            const dellDebtUser = await Debt.findOneAndDelete(debt_id)
-            return res.status(200).json({message:"Debit registered"})
+            const dellDebtUser = await Debt.findByIdAndRemove(debt_id)
+            return res.status(200).json({message:"Debit Deleted", dellDebtUser})
         } catch (error) {
             return res.status(400).json(error)
         }

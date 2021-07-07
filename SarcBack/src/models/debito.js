@@ -14,10 +14,10 @@ const Schema = new mongoose.Schema({
         type: 'number', 
         required: true
     },
-    debtTotal: {
-        type: 'number', 
-        required: false,
-    },
+    debtTotal: [{
+        type: mongoose.Schema.Types.Number,
+        required: false
+    }],
     data:{
         type:'Date',
         default: Date.now()

@@ -9,6 +9,7 @@ routes.post('/sarc/user', userController.createUser)
 routes.get('/sarc/user', userController.listUser)
 routes.delete('/sarc/user/:user_id', userController.deleteUser)
 
+//Login
 routes.post('/sarc/login', loginController.login)
 
 //Contas
@@ -28,7 +29,6 @@ routes.delete('/sarc/debt/delete/:debt_id', debtController.deleteDebtUser)//Dele
 
 
 
-//Login
-// routes.post('/login')
+
 
 module.exports = routes
