@@ -13,20 +13,20 @@ module.exports = {
         
         try {
             //Adiciona valor a debtos
-            const createDebt = await Debt.create({user_id, cont_id, valor,debtTotal})
-            
+            const createDebt = await Debt.create({user_id, cont_id, valor, debtTotal})
 
             //cria um array "debtos" com os valores adicionados
-            const Total = await Debt.find()
+            const Total = await Debt.find({user_id})
+           
             const debtos = Total.map(Total => Total.valor)
-            
+            console.log(debtos)
             //soma os debtos 
             totalDebts = debtos.reduce((va, debto) => va+debto)
 
             //salva a soma do total de debitos
             createDebt.debtTotal.push(totalDebts)
             await createDebt.save()                 
-           
+            
             
             return res.status(200).json({message:"Debit registered", createDebt, totalDebts})
                    
@@ -72,7 +72,13 @@ module.exports = {
         const {debt_id} = req.params
         
         try {
-            const dellDebtUser = await Debt.findByIdAndRemove(debt_id)
+            const dellDebtUser = await Debt.findById(debt_id) 
+            console.log(dellDebtUser.debtTotal[0])
+            
+            const Total = await Debt.find({user_id})
+           
+            const debtos = Total.map(Total => Total.valor)
+            console.log(debtos)
             return res.status(200).json({message:"Debit Deleted", dellDebtUser})
         } catch (error) {
             return res.status(400).json(error)

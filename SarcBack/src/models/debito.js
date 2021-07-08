@@ -15,7 +15,7 @@ const Schema = new mongoose.Schema({
         required: true
     },
     debtTotal: [{
-        type: mongoose.Schema.Types.Number,
+        type: mongoose.Schema.Types.Array,
         required: false
     }],
     data:{
