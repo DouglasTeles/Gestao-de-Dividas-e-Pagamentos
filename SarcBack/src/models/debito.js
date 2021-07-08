@@ -14,10 +14,6 @@ const Schema = new mongoose.Schema({
         type: 'number', 
         required: true
     },
-    debtTotal: [{
-        type: mongoose.Schema.Types.Array,
-        required: false
-    }],
     data:{
         type:'Date',
         default: Date.now()

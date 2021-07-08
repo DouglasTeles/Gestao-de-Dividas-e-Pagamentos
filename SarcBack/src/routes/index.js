@@ -27,7 +27,9 @@ routes.delete('/sarc/debts/deleteall', debtController.deleteAllDebt)//Deletar to
 routes.put('/sarc/debt/update/:debt_id', debtController.updateDebtUser)//Atualizar debt de um morador
 routes.delete('/sarc/debt/delete/:debt_id', debtController.deleteDebtUser)//Deletar debt de um morador
 
-
+//Total
+const totoalController = require('../controllers/totalController')
+routes.get('/sarc/total/:user_id', totoalController.listTotal )//Cadastrar debt para um morador
 
 
 
