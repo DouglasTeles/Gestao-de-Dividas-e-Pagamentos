@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGO_URI,{
     useUnifiedTopology: true,
     useNewUrlParser: true
     },
-    console.log('DATABASE TA ON!'))
+    console.log('DATABASE ON!'))
 
 
 //Routes
@@ -21,5 +21,5 @@ app.use(routes)
 
 
 app.listen(2424, ()=> {
-    console.log("SERVER TA ON!")
+    console.log("SERVER ON!")
 })

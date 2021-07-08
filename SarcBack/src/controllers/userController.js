@@ -1,10 +1,14 @@
+const helpers = require('../helpers')
 const User = require("../models/user");
+
 
 module.exports = {
   async createUser(req, res) {
-    const { name, password, cellphone, isAdmin  } = req.body;
+    const { name, password, cellphone, isAdmin  } = req.body
 
+    
     try {
+        const encryptedPassword = await helpers.encryptPassword(password)
 
         const hasUser = await User.findOne({cellphone})
         if(hasUser) {
@@ -13,11 +17,13 @@ module.exports = {
 
       const createUser = await User.create({
         name,
-        password,
+        password:encryptedPassword,
         cellphone,
         isAdmin,
       });
-      return res.status(200).json({ message: "Resident created sucessfully" });
+
+      createUser.password = undefined
+      return res.status(200).json({ message: "Resident created sucessfully",createUser});
     } catch (error) {
       return res.status(400).json(error);
     }
@@ -36,7 +42,7 @@ module.exports = {
     const {user_id} = req.params
 
     try {
-      const deleteUser = await User.findOneAndDelete(user_id);
+      const deleteUser = await User.findByIdAndRemove(user_id);
 
       return res.status(200).json({message:"User deleted", deleteUser});
     } catch (error) {}

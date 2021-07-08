@@ -1,4 +1,4 @@
-const totalDebts = require('../models/total')
+const debtsTotal = require('../models/total')
 const Debt = require('../models/debito')
 
 module.exports = {
@@ -10,8 +10,9 @@ module.exports = {
         const debtos = Total.map(Total => Total.valor)
 
         totalDebts = debtos.reduce((va, debto) => va+debto)
+        console.log(totalDebts)
 
-        const createTotal = await totalDebts.create({total:totalDebts})
+        const createTotal = await debtsTotal.create({total:totalDebts})
         return res.status(200).json(createTotal)
         
     }
