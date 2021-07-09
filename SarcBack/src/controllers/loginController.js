@@ -1,4 +1,5 @@
 const User = require('../models/user')
+const bcrypt = require('../helpers/bcrypt')
 module.exports = {
 
     async login(req, res) {
@@ -10,11 +11,16 @@ module.exports = {
                 return res.status(400).json({ message:"User does not exist"})
             }
 
-            const validPassword = await User.findOne({password}).where({cellphone})
-            if(!validPassword) {
-                return res.status(400).json({ message:"Invalid Password"})
-            }
+            const passwordDTO = {
+                requestPass: password,
+                responsePass:hasUser.password
+            }  
 
+            const validPassword = await bcrypt.decryptPassword(passwordDTO)
+            
+            if(!validPassword){return res.status(400).json({ message:"Invalid password"})}
+
+            hasUser.password = undefined
             return res.status(200).send({ message:"Sucess login", hasUser})
 
         } catch (error) {

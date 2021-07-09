@@ -9,8 +9,7 @@ routes.post('/sarc/user', userController.createUser)
 routes.get('/sarc/user', userController.listUser)
 routes.delete('/sarc/user/:user_id', userController.deleteUser)
 
-//Login
-routes.post('/sarc/login', loginController.login)
+
 
 //Contas
 const contController = require('../controllers/contController')
@@ -31,6 +30,7 @@ routes.delete('/sarc/debt/delete/:debt_id', debtController.deleteDebtUser)//Dele
 const totoalController = require('../controllers/totalController')
 routes.get('/sarc/total/:user_id', totoalController.listTotal )//Cadastrar debt para um morador
 
-
+//Login
+routes.post('/sarc/login', loginController.login)
 
 module.exports = routes
