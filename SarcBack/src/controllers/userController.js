@@ -30,6 +30,7 @@ module.exports = {
   },
 
   async listUser(req, res) {
+    
     try {
       const allUsers = await User.find();
 

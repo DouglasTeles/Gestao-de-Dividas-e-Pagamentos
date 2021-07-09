@@ -1,4 +1,5 @@
 const {Router} = require('express')
+const authenticate = require('../middlewares/auth')
 const loginController = require('../controllers/loginController')
 const routes = Router()
 
@@ -6,9 +7,8 @@ const routes = Router()
 //Users
 const userController = require('../controllers/userController')
 routes.post('/sarc/user', userController.createUser)
-routes.get('/sarc/user', userController.listUser)
+routes.get('/sarc/user' ,userController.listUser)
 routes.delete('/sarc/user/:user_id', userController.deleteUser)
-
 
 
 //Contas
