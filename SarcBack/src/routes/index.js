@@ -18,13 +18,17 @@ routes.get('/sarc/conts', contController.listCont)//Listar todas as contas
 routes.delete('/sarc/cont/:cont_id/delete', contController.deleteCont)//Deletar Conta especifica
 
 
-//values
+//Debit
 const debtController = require('../controllers/debtController')
-routes.post('/sarc/debt/:user_id/:cont_id', debtController.createDbt )//Cadastrar debt para um morador
+routes.post('/sarc/debt/:user_id/:cont_id/create', debtController.createDbt )//Cadastrar debt para um morador
 routes.get('/sarc/debts/:user_id', debtController.listDebtUser)//listar debts de um morador
 routes.delete('/sarc/debts/deleteall', debtController.deleteAllDebt)//Deletar todos os debitos
 routes.put('/sarc/debt/update/:debt_id', debtController.updateDebtUser)//Atualizar debt de um morador
 routes.delete('/sarc/debt/delete/:debt_id', debtController.deleteDebtUser)//Deletar debt de um morador
+
+//Crédit
+const creditController = require('../controllers/creditController')
+routes.post('/sarc/credit/:user_id/create', creditController.createCredit)//voltar
 
 //Total
 const totoalController = require('../controllers/totalController')
