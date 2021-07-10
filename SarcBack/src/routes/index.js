@@ -8,14 +8,14 @@ const routes = Router()
 const userController = require('../controllers/userController')
 routes.post('/sarc/user', userController.createUser)
 routes.get('/sarc/user' ,userController.listUser)
-routes.delete('/sarc/user/:user_id', userController.deleteUser)
+routes.delete('/sarc/user/:user_id/delete', userController.deleteUser)
 
 
 //Contas
 const contController = require('../controllers/contController')
 routes.post('/sarc/cont', contController.createCont)//Cadastrar conta
 routes.get('/sarc/conts', contController.listCont)//Listar todas as contas
-routes.delete('/sarc/cont/:cont_id', contController.deleteCont)//Deletar Conta especifica
+routes.delete('/sarc/cont/:cont_id/delete', contController.deleteCont)//Deletar Conta especifica
 
 
 //values
@@ -28,7 +28,7 @@ routes.delete('/sarc/debt/delete/:debt_id', debtController.deleteDebtUser)//Dele
 
 //Total
 const totoalController = require('../controllers/totalController')
-routes.get('/sarc/total/:user_id', totoalController.listTotal )//Cadastrar debt para um morador
+routes.get('/sarc/total/:user_id', totoalController.listTotal )//Lista total de um morador
 
 //Login
 routes.post('/sarc/login', loginController.login)

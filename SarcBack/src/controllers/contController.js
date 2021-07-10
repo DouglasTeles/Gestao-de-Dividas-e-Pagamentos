@@ -42,7 +42,7 @@ module.exports = {
                 return res.status(400).json({message:"Cont not found"})
             }   
             const deleteCont = await Cont.findByIdAndRemove(cont_id)
-            return res.status(200).json({message:"Cont has been deleted", hasCont})
+            return res.status(200).json({message:"Cont has been deleted", deleteCont})
 
         } catch (error) {
             return res.status(200).json({message:"Cont not found"})

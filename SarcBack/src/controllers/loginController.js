@@ -9,7 +9,7 @@ module.exports = {
         try {
             const hasUser = await User.findOne({cellphone})
             if(!hasUser) {
-                return res.status(400).json({ message:"User does not exist"})
+                return res.status(400).json({ message:"User or password invalid"})
             }
 
             const passwordDTO = {
@@ -19,7 +19,7 @@ module.exports = {
 
             const validPassword = await bcrypt.decryptPassword(passwordDTO)
             
-            if(!validPassword){return res.status(400).json({ message:"Invalid password"})}
+            if(!validPassword){return res.status(400).json({ message:"User or password invalid"})}
 
             const payload = {
                 cellphone:hasUser.cellphone,
