@@ -14,6 +14,10 @@ const Schema = new mongoose.Schema({
         type: 'number', 
         required: true
     },
+    observation: {
+        type: 'String', 
+        required: false
+    },
     data:{
         type:'Date',
         default: Date.now()

@@ -4,10 +4,10 @@ const dividaTotal = require("../models/total");
 module.exports = {
   async createDbt(req, res) {
     const { user_id, cont_id } = req.params;
-    const { valor } = req.body;
+    const { valor, observation } = req.body;
 
     try {
-      const createDebt = await Debt.create({ user_id, cont_id, valor });
+      const createDebt = await Debt.create({ user_id, cont_id, valor, observation});
 
       return res.status(200).json({ message: "Debit registered", createDebt });
     } catch (error) {
