@@ -6,9 +6,9 @@ const routes = Router()
 
 //Users
 const userController = require('../controllers/userController')
-routes.post('/sarc/user', userController.createUser)
-routes.get('/sarc/user' ,userController.listUser)
-routes.delete('/sarc/user/:user_id/delete', userController.deleteUser)
+routes.post('/sarc/user', userController.createUser)//Cadastra usuario
+routes.get('/sarc/user' ,userController.listUser)//Lista usuarios
+routes.delete('/sarc/user/:user_id/delete', userController.deleteUser)//Deleta usuario
 
 
 //Contas
@@ -28,11 +28,12 @@ routes.delete('/sarc/debt/delete/:debt_id', debtController.deleteDebtUser)//Dele
 
 //Crédit
 const creditController = require('../controllers/creditController')
-routes.post('/sarc/credit/:user_id/create', creditController.createCredit)//voltar
+routes.post('/sarc/credit/:user_id/new', creditController.createCredit)//Cadastrar crédito
+routes.get('/sarc/credit/:user_id/list', creditController.listCredit)//Listar crédito
 
 //Total
 const totoalController = require('../controllers/totalController')
-routes.get('/sarc/total/:user_id', totoalController.listTotal )//Lista total de um morador
+routes.get('/sarc/total/:user_id', totoalController.listTotal )//Lista débitos totais de um morador
 
 //Login
 routes.post('/sarc/login', loginController.login)
