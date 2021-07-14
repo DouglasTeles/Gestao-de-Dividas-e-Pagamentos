@@ -1,29 +1,36 @@
-import React from "react";
-import Logo1 from "../Assets/Logo1.png";
+import React, { useState } from "react";
+import logoIcon from "../Assets/logoIcon.png";
+import Inputs from "./Inputs";
 
 function MainSection() {
+  const [login, setLogin] = useState('')
+  const [password, setPassword] = useState('')
+
   return (
     <main>
       <div className="form-login-register">
-        {/* <img src = {Logo1} alt="Logo Sarc" /> */}
         <form>
+        <img src = {logoIcon} alt="Logo Sarc" />
           <h1>Login</h1>
+
           <fieldset>
-            <div className="input-field">
-              <label for="telefone">Telefone</label>
-              <input
-                id="telefone"
-                type="text"
-                placeholder="ex: 65999999999"
-              ></input>
-            </div>
-            <div className="input-field">
-              <label for="password">Senha</label>
-              <input id="password" type="password" placeholder="Senha"></input>
-            </div>
+          <Inputs 
+            title="User Login" 
+            type="text" 
+            state = {login}
+            setState = {e =>setLogin(e.target.value) }
+          />
+
+          <Inputs 
+            title="Password" 
+            type="password"
+            state = {password}
+            setState = {e =>setPassword(e.target.value) } 
+          />  
+            
           </fieldset>
-          <button>Entrar</button>
-          <button>Criar Cadastro</button>
+          <button>Sign in</button>
+          <label>Don't have accont? <a href="/user">Sign up</a> </label>
         </form>
       </div>
     </main>

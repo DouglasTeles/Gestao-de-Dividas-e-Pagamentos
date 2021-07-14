@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {IoExit} from 'react-icons/io5'
+
 import logoIcon from '../Assets/logoIcon.png'
 import logout from '../Assets/logout.png'
 
