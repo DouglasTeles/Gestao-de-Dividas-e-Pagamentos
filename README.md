@@ -3,10 +3,10 @@ Sistema para gestão de débitos de moradores em uma república
 
 ## Regras de negócio
   Essa API tem a função de gerenciar débitos de moradores de uma república. <br/>
-  Um dos moradores será o administrador do sistema, e ele tera alguns privilegios e responsabilidades extras. 
-  O administrador é responsavel por cadastrar todos os débitos mensais dos outros moradores. 
-  O administrador também pode cadastrar créditos aos moradores, sendo que esses créditos são abatidos do débito total de cada morador.
-  O sistema faz o calculo de débito total de cada morador individualmente.
+  Um dos moradores será o administrador do sistema, e ele tera alguns privilegios e responsabilidades extras. <br/>
+  O administrador é responsavel por cadastrar todos os débitos mensais dos outros moradores. <br/>
+  O administrador também pode cadastrar créditos aos moradores, sendo que esses créditos são abatidos do débito total de cada morador.<br/>
+  O sistema faz o calculo de débito total de cada morador individualmente.<br/>
 
 ## tecnologias utilizadas
     Nodejs
@@ -38,6 +38,6 @@ Sistema para gestão de débitos de moradores em uma república
 
 
 ### Considerações <br/>
-Essa API ainda não esta em sua verão final, pretendo fazer alguns ajustes para adições de recursos e melhorias no código se houver necessidade.
+Essa API ainda não esta em sua versão final, pretendo fazer alguns ajustes para adições de recursos e melhorias no código se houver necessidade.
 
 ### Nesse momento estou desenvolvendo o front com React.
