@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGO_URI,{
 //Routes
 const routes = require('./routes')
 app.use(routes)
-app.use (cors())
+app.use(cors())
 
 app.listen(process.env.PORT || 2424, ()=> {
     console.log("Server running!")
