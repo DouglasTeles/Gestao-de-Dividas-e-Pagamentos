@@ -6,7 +6,7 @@ const routes = Router()
 
 //Users
 const userController = require('../controllers/userController')
-routes.post('/sarc/user',authenticate.verifyToken, userController.createUser)//Cadastra usuario
+routes.post('/sarc/user', userController.createUser)//Cadastra usuario
 routes.get('/sarc/user' ,userController.listUser)//Lista usuarios
 routes.delete('/sarc/user/:user_id/delete',authenticate.verifyToken, userController.deleteUser)//Deleta usuario
 

@@ -1,5 +1,5 @@
-
 import React, { useState } from "react";
+import api from '../services/api.js'
 import logoIcon from "../Assets/logoIcon.png";
 import Inputs from "./Inputs";
 import {Link} from 'react-router-dom'
@@ -11,6 +11,26 @@ function RegisterUser() {
   const [cellphone, setCellphone ] = useState('')
   const [password, setPassword] = useState('')
   const [password1, setPassword1] = useState('')
+
+  async function registrationHandler(e){
+    e.preventDefault()
+    try{
+      await api.post('/sarc/user', {
+          name:username,
+          password:password,
+          cellphone:cellphone
+      
+      })
+      alert("Cadastro salvo com sucesso!")
+      setUsername  ('')
+      setCellphone ('')
+      setPassword ('')
+
+    }    
+    catch(err){
+      alert("Erro ao salvar cadastro")
+    }
+  } 
 
   return (
     <main>
@@ -41,18 +61,21 @@ function RegisterUser() {
             setState = {e =>setPassword(e.target.value) }
           />
 
-          <Inputs 
+          {/* <Inputs 
             title="Confirm Password" 
             type="password" 
             state = {password1}
             setState = {e =>setPassword1(e.target.value) }
-          />
+          /> */}
 
           </fieldset>
-          <button className="saveBtn">Save</button>
+          <button 
+            className="saveBtn" onClick={registrationHandler}
+            >Save
+          </button>
+          
           <Link to = '/' className="linkCancel"> 
             <button className="btnCancel" >Cancel</button>
-
           </Link>          
         </form>
       </div>

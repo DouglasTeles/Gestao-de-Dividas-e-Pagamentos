@@ -1,7 +1,8 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const axios = axios.create({
+
+const api = axios.create({
     baseURL:'https://dashboard.heroku.com/apps/gestao-republica/deploy/github'
-})
+});
 
-export default api   
+export default api;   
