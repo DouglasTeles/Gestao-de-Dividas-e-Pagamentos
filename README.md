@@ -8,7 +8,7 @@ Sistema para gestão de débitos de moradores em uma república
   O administrador também pode cadastrar créditos aos moradores, sendo que esses créditos são abatidos do débito total de cada morador.<br/>
   O sistema faz o calculo de débito total de cada morador individualmente.<br/>
 
-## tecnologias utilizadas
+## Tecnologias utilizadas
     Nodejs
     JavaScript
     Express
