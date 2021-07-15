@@ -2,7 +2,7 @@
 Sistema para gestão de débitos de moradores em uma república
 
 ## Regras de negócio
-  Essa API tem a função de gerenciar débitos de moradores de uma república.
+  Essa API tem a função de gerenciar débitos de moradores de uma república. <br/>
   Um dos moradores será o administrador do sistema, e ele tera alguns privilegios e responsabilidades extras. 
   O administrador é responsavel por cadastrar todos os débitos mensais dos outros moradores. 
   O administrador também pode cadastrar créditos aos moradores, sendo que esses créditos são abatidos do débito total de cada morador.
